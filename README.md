@@ -1,7 +1,7 @@
 # 16S-Microbiome
 16S sequencing analysis pipeline for low biomass samples
 
-#Explanation of repository files
+Explanation of repository files:
 16S-sequencing.R is the main code for this project, it includes pre-processing,
 filtering, alpha and beta diversity, and differential abundance analysis
 
