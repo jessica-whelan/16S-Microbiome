@@ -20,7 +20,7 @@ Once development of the new functions is finalized, they will be integrated into
 This pipeline was developed and is maintained by Jessica Whelan (jessica-whelan). It serves as the upstream source for the analysis code used in the bmd-project repo.  
 A corresponding fork is maintained under the `bmd-project` organization to support project-specific development and collaboration.
 
-Please acknowledge or cite the main when using or adapting the code.
+Please acknowledge or cite this repo when using or adapting the code.
 Use of this code within the project is by permission, and redistribution or reuse outside the project should include appropriate citation or acknowledgment.
 
 © 2025 Jessica Whelan. All rights reserved.
