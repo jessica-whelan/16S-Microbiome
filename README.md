@@ -21,6 +21,6 @@ This pipeline was developed and is maintained by Jessica Whelan (jessica-whelan)
 A corresponding fork is maintained under the `bmd-project` organization to support project-specific development and collaboration.
 
 Please acknowledge or cite this repo when using or adapting the code.
-Use of this code within the project is by permission, and redistribution or reuse outside the project should include appropriate citation or acknowledgment.
+Any use, adaptation, redistribution, or incorporation of the code requires permission from the author and must include appropriate citation or acknowledgement.
 
 © 2025 Jessica Whelan. All rights reserved.
