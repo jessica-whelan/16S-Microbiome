@@ -451,6 +451,323 @@ cat("Krona plot generated:", output_html, "\n")
 
 
 
+#-------------------------------------------
+# Intra-Sample Variability Analysis
+#-------------------------------------------
+
+#phyloseq object names
+  #ps1 = conservative filtering
+  #ps1s = extensive filtering
+#submitted.name = replicate ID
+#dupl_id = sample ID
+ps_rel <- transform_sample_counts(ps1s, function(x) x / sum(x))
+#aggregate to family level
+ps_family <- tax_glom(ps_rel, taxrank = "Family")
+#Extract mean abundance across samples
+otu_bar <- as(otu_table(ps_family), "matrix") 
+if(taxa_are_rows(ps_family)) otu_bar <- t(otu_bar)
+#Compute mean abundance and filter by 1%
+mean_abund <-colMeans(otu_bar)
+keep_taxa <- names(mean_abund[mean_abund > 0.01])
+ps1_filt <- prune_taxa(keep_taxa, ps_family)
+# Bar plot of relative abundance to see intra-sample variability
+plot_bar(ps1_filt, x = "submitted.name", fill = "Family") +
+  facet_wrap(~ dupl_id, scales = "free_x") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+#Ordination to visualize replicate clustering
+# Ordination using Bray-Curtis
+ord <- ordinate(ps1_filt, method = "NMDS", distance = "bray")
+# Plot ordination colored by sample ID and shaped by replicate ID
+plot_ordination(ps1_filt, ord, color = "submitted.name") +
+  facet_wrap(~ dupl_id) +
+  ggtitle("NMDS Ordination Faceted by Sample") +
+  theme_minimal()
+plot_ordination(ps1_filt, ord, color = "submitted.name") +
+  facet_wrap(~ category) +
+  ggtitle("NMDS Ordination Faceted by Sample") +
+  theme_minimal()
+
+
+#Quantify Intra-Sample Dissimilarity
+# Extract OTU table
+otu <- as(otu_table(ps1_filt), "matrix")
+if(taxa_are_rows(ps1_filt)) otu <- t(otu)
+# Compute Bray-Curtis dissimilarity
+bray <- vegdist(otu, method = "bray")
+# Convert to matrix
+bray_mat <- as.matrix(bray)
+# Convert to long format
+library(reshape2)
+bray_df_long <- melt(bray_mat, varnames = c("submitted.name.x", "submitted.name.y"), value.name = "bray_dist")
+#Prepare metadata
+meta <- as(sample_data(ps1_filt), "data.frame")
+meta$submitted.name <- rownames(meta)
+# Create a second copy for merging the second replicate
+meta2 <- meta
+meta2$submitted.name.y <- meta2$submitted.name
+#Merge metadata
+bray_df_long <- merge(bray_df_long, meta, by.x = "submitted.name.x", by.y = "submitted.name")
+bray_df_long <- merge(bray_df_long, meta2, by.x = "submitted.name.y", by.y = "submitted.name.y", suffixes = c(".x", ".y"))
+# Filter for within-sample comparisons
+bray_within <- subset(bray_df_long, dupl_id.x == dupl_id.y & submitted.name.x != submitted.name.y)
+# Summarize mean dissimilarity per sample
+bray_summary <- bray_within %>%
+  group_by(dupl_id.x) %>%
+  summarise(mean_dissimilarity = mean(bray_dist))
+# Plot
+ggplot(bray_summary, aes(x = dupl_id.x, y = mean_dissimilarity)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = round(mean_dissimilarity, 3)), 
+           vjust = -0.5, size = 3) +  # Adjust position and size
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Mean Bray-Curtis Dissimilarity") +
+  xlab("Sample ID") +
+  ggtitle("Intra-Sample Bray-Curtis Dissimilarity")
+#bray curtis heatmap
+library(pheatmap)
+bray <- vegdist(otu, method = "bray")
+bray_mat <- as.matrix(bray)
+annotation_df <- data.frame(dupl_id = sample_data(ps1_filt)$dupl_id)
+rownames(annotation_df) <- rownames(sample_data(ps1_filt))
+pheatmap(bray_mat, annotation_col = annotation_df)
+
+# Alpha-diversity per replicate
+alpha_div <- estimate_richness(ps1, measures = c("Shannon", "Simpson"))
+alpha_div$sample_id <- rownames(alpha_div)
+# Prepare metadata
+meta <- as(sample_data(ps1), "data.frame")
+meta$sample_id <- rownames(meta)  # Also P30859_101 etc.
+# Merge with metadata
+alpha_div <- merge(alpha_div, meta, by = "sample_id")
+alpha_div$dupl_id <- as.factor(alpha_div$dupl_id)
+# Plot Shannon diversity grouped by sample
+ggplot(alpha_div, aes(x = dupl_id, y = Shannon)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Shannon Diversity") +
+  xlab("Sample ID") +
+  ggtitle("Alpha Diversity per Replicate")
+
+
+# Bar plot by location on aggregated samples
+sample_data(ps1_agg)$dupl_id <- rownames(sample_data(ps1_agg))
+ps_rel_agg <- transform_sample_counts(ps1_agg, function(x) x / sum(x))
+ps_family_agg <- tax_glom(ps_rel_agg, taxrank = "Family")
+otu_bar_agg <- as(otu_table(ps_family_agg), "matrix")
+if(taxa_are_rows(ps_family_agg)) otu_bar_agg <- t(otu_bar_agg)
+mean_abund_agg <-colMeans(otu_bar_agg)
+keep_taxa <- names(mean_abund_agg[mean_abund_agg > 0.01])
+ps1_agg_filt <- prune_taxa(keep_taxa, ps_family_agg)
+plot_bar(ps1_agg_filt, x = "dupl_id", fill = "Family") +
+  facet_wrap(~ location, scales = "free_x") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+#-------------Intra-sample variability as a function--------
+
+run_intra_sample_analysis <- function(ps_object, object_name = "ps") {
+  # Relative abundance
+  ps_rel <- transform_sample_counts(ps_object, function(x) x / sum(x))
+  
+  # Aggregate to Family level
+  ps_family <- tax_glom(ps_rel, taxrank = "Family")
+  
+  # Filter by mean abundance > 1%
+  otu_bar <- as(otu_table(ps_family), "matrix")
+  if (taxa_are_rows(ps_family)) otu_bar <- t(otu_bar)
+  mean_abund <- colMeans(otu_bar)
+  keep_taxa <- names(mean_abund[mean_abund > 0.01])
+  ps_filt <- prune_taxa(keep_taxa, ps_family)
+  
+  # Bar plot
+  print(
+    plot_bar(ps_filt, x = "submitted.name", fill = "Family") +
+      facet_wrap(~ dupl_id, scales = "free_x") +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      ggtitle(paste("Relative Abundance -", object_name))
+  )
+  
+  # Ordination
+  ord <- ordinate(ps_filt, method = "NMDS", distance = "bray")
+  print(
+    plot_ordination(ps_filt, ord, color = "submitted.name") +
+      facet_wrap(~ dupl_id) +
+      ggtitle(paste("NMDS Ordination by dupl_id -", object_name)) +
+      theme_minimal()
+  )
+  print(
+    plot_ordination(ps_filt, ord, color = "submitted.name") +
+      facet_wrap(~ category) +
+      ggtitle(paste("NMDS Ordination by category -", object_name)) +
+      theme_minimal()
+  )
+  
+  # Bray-Curtis dissimilarity
+  otu <- as(otu_table(ps_filt), "matrix")
+  if (taxa_are_rows(ps_filt)) otu <- t(otu)
+  bray <- vegdist(otu, method = "bray")
+  bray_mat <- as.matrix(bray)
+  
+  # Metadata
+  meta <- as(sample_data(ps_filt), "data.frame")
+  meta$submitted.name <- rownames(meta)
+  meta2 <- meta
+  meta2$submitted.name.y <- meta2$submitted.name
+  
+  # Merge and filter
+  bray_df_long <- reshape2::melt(bray_mat, varnames = c("submitted.name.x", "submitted.name.y"), value.name = "bray_dist")
+  bray_df_long <- merge(bray_df_long, meta, by.x = "submitted.name.x", by.y = "submitted.name")
+  bray_df_long <- merge(bray_df_long, meta2, by.x = "submitted.name.y", by.y = "submitted.name.y", suffixes = c(".x", ".y"))
+  bray_within <- subset(bray_df_long, dupl_id.x == dupl_id.y & submitted.name.x != submitted.name.y)
+  
+  # Summary
+  bray_summary <- bray_within %>%
+    group_by(dupl_id.x) %>%
+    summarise(mean_dissimilarity = mean(bray_dist))
+  
+  # Plot
+  print(
+    ggplot(bray_summary, aes(x = dupl_id.x, y = mean_dissimilarity)) +
+      geom_bar(stat = "identity", fill = "steelblue") +
+      geom_text(aes(label = round(mean_dissimilarity, 3)), vjust = -0.5, size = 3) +
+      theme(axis.text.x = element_text(angle = 90)) +
+      ylab("Mean Bray-Curtis Dissimilarity") +
+      xlab("Sample ID") +
+      ggtitle(paste("Intra-Sample Dissimilarity -", object_name))
+  )
+  
+  # Heatmap
+  annotation_df <- data.frame(dupl_id = sample_data(ps_filt)$dupl_id)
+  rownames(annotation_df) <- rownames(sample_data(ps_filt))
+  pheatmap(bray_mat, annotation_col = annotation_df)
+  
+  # Alpha diversity
+  alpha_div <- estimate_richness(ps_object, measures = c("Shannon", "Simpson"))
+  alpha_div$sample_id <- rownames(alpha_div)
+  meta_alpha <- as(sample_data(ps_object), "data.frame")
+  meta_alpha$sample_id <- rownames(meta_alpha)
+  alpha_div <- merge(alpha_div, meta_alpha, by = "sample_id")
+  alpha_div$dupl_id <- as.factor(alpha_div$dupl_id)
+  
+  # Plot alpha diversity
+  print(
+    ggplot(alpha_div, aes(x = dupl_id, y = Shannon)) +
+      geom_boxplot() +
+      theme(axis.text.x = element_text(angle = 90)) +
+      ylab("Shannon Diversity") +
+      xlab("Sample ID") +
+      ggtitle(paste("Alpha Diversity per Replicate -", object_name))
+  )
+}
+
+run_intra_sample_analysis(ps1, "Conservative Filtering")
+
+#troubshooting ps1s, which isn't running as expected
+# Clean Genus first
+tax_tab <- tax_table(ps1)
+genus <- as.character(tax_tab[, "Genus"])
+genus[is.na(genus) | genus == ""] <- "Unclassified_Genus"
+tax_table(ps1) <- tax_table(matrix(genus, ncol=1, dimnames=list(rownames(tax_tab), "Genus")))
+
+# Filter all at once
+ps1s <- subset_taxa(ps1, !(Genus %in% c(filter_genera, filter_contaminant_taxa)))
+
+run_intra_sample_analysis(ps1s, "Extensive Filtering")
+
+
+
+
+#-------------------------
+#Other intra-sample options
+#--------------------------
+library(dplyr)
+
+# Calculate summary stats per sample group
+alpha_summary <- alpha_div %>%
+  group_by(dupl_id) %>%
+  summarise(
+    mean_shannon = mean(Shannon),
+    sd_shannon = sd(Shannon),
+    cv_shannon = sd_shannon / mean_shannon,
+    mean_simpson = mean(Simpson),
+    sd_simpson = sd(Simpson),
+    cv_simpson = sd_simpson / mean_simpson
+  )
+#Detect outliers
+# z-score
+alpha_div <- alpha_div %>%
+  group_by(dupl_id) %>%
+  mutate(
+    z_shannon = ifelse(sd(Shannon) > 0, (Shannon - mean(Shannon)) / sd(Shannon), 0),
+    z_simpson = ifelse(sd(Simpson) > 0, (Simpson - mean(Simpson)) / sd(Simpson), 0)
+  )
+
+z_outliers <- alpha_div %>%
+  filter(abs(z_shannon) > 2)
+# IQR method---this is better for our purposes
+iqr_outliers <- alpha_div %>%
+  group_by(dupl_id) %>%
+  filter(
+    Shannon < quantile(Shannon, 0.25) - 1.5 * IQR(Shannon) |
+      Shannon > quantile(Shannon, 0.75) + 1.5 * IQR(Shannon)
+  )
+#z-score outlier plot
+ggplot(alpha_div, aes(x = dupl_id, y = Shannon)) +
+  geom_boxplot(outlier.shape = NA) +  # Hide default outliers
+  geom_jitter(width = 0.2, alpha = 0.6) +  # Show all points
+  geom_point(data = z_outliers, aes(x = dupl_id, y = Shannon), color = "red", size = 3) +
+  geom_text(data = z_outliers, aes(label = sample_id), vjust = -0.5, size = 2.5) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ggtitle("Alpha Diversity with Z-score Outliers Highlighted")
+#iqr outlier plot
+ggplot(alpha_div, aes(x = dupl_id, y = Shannon)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.2, alpha = 0.6) +
+  geom_point(data = iqr_outliers, aes(x = dupl_id, y = Shannon), color = "blue", size = 3) +
+  geom_text(data = iqr_outliers, aes(label = sample_id), vjust = -0.5, size = 2.5) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ggtitle("Alpha Diversity with IQR Outliers Highlighted")
+
+#Boxplot with outlier labels
+ggplot(alpha_div, aes(x = dupl_id, y = Shannon)) +
+  geom_boxplot(outlier.colour = "red", outlier.shape = 8) +
+  geom_text(data = iqr_outliers, aes(label = sample_id), vjust = -0.5, size = 2.5) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Shannon Diversity") +
+  ggtitle("Alpha Diversity with Outliers")
+
+#beta diveristy outliers
+
+
+bray_summary <- bray_within %>%
+  group_by(dupl_id.x) %>%
+  summarise(mean_dissimilarity = mean(bray_dist),
+            sd_dissimilarity = sd(bray_dist))
+
+bray_within <- bray_within %>%
+  group_by(dupl_id.x) %>%
+  mutate(rel_dev = abs(bray_dist - mean(bray_dist)) / mean(bray_dist))
+bray_outliers <- bray_within %>% filter(rel_dev > 0.5)
+
+ggplot(bray_within, aes(x = dupl_id.x, y = bray_dist)) +
+  geom_jitter(width = 0.2, alpha = 0.6) +
+  geom_point(data = bray_outliers, aes(x = dupl_id.x, y = bray_dist), color = "red", size = 3) +
+  geom_text(data = bray_outliers, aes(label = paste(submitted.name.x, submitted.name.y, sep = "-")), 
+            vjust = -0.5, size = 2.5) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Bray-Curtis Dissimilarity") +
+  ggtitle("Replicate Pair Dissimilarity with Outliers Highlighted")
+
+ggplot(bray_summary, aes(x = dupl_id.x, y = mean_dissimilarity, fill = mean_dissimilarity > 0.6)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("FALSE" = "steelblue", "TRUE" = "red")) +
+  geom_text(aes(label = round(mean_dissimilarity, 3)), vjust = -0.5, size = 3) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Mean Bray-Curtis Dissimilarity") +
+  xlab("Sample ID") +
+  ggtitle("Highlight Samples with Mean Bray-Curtis > 0.6") +
+  guides(fill = FALSE)  # Hide legend if not needed
 
 ######Things to do still
 #  1) Intra-sample variability analysis
