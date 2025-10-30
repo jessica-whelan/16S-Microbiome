@@ -1,6 +1,6 @@
 ## References / Package Citations
 
-When using or adapting this pipeline, please cite the following R packages as appropriate:
+To properly acknowledge the authors of the software used in this pipeline, please cite the following R packages:
 
 - **phyloseq**  
   McMurdie, P.J. & Holmes, S. (2013). phyloseq: An R package for reproducible interactive analysis and graphics of microbiome census data. *PLOS ONE*, 8(4), e61217. https://doi.org/10.1371/journal.pone.0061217
@@ -25,3 +25,4 @@ When using or adapting this pipeline, please cite the following R packages as ap
 
 - **pairwiseAdonis**  
   Martinez Arbizu, P. (2020). pairwiseAdonis: Pairwise multilevel comparison using adonis. R package version 0.4. https://github.com/pmartinezarbizu/pairwiseAdonis
+
