@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you have license to use this software, please cite it as below:"
+title: "Pipeline for 16S Sequencing Analysis of Human Microbiome"
+authors:
+  - family-names: Jessica
+    given-names: Whelan
+date-released: 2025-10-28
+version: 1.0.0
+license:  "All rights reserved. Licensed for internal research use by Uppsala University only."
+repository-code: "https://github.com/jessica-whelan/16S-Microbiome"
+preferred-citation:
+  type: software
+  title: "Pipeline for 16S Sequencing Analysis of Human Microbiome"
+  authors:
+    - family-names: Whelan
+      given-names: Jessica
+  year: 2025
+  version: 1.0.0
