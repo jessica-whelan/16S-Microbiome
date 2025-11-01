@@ -12,7 +12,7 @@ Uppsala University and its affiliated research groups are granted a **perpetual,
 
 No transfer of ownership, copyright, or intellectual property rights is implied or granted by this license.  
 
-Any publication, public distribution, or external release of this software or any modified version thereof requires the explicit written permission of the copyright holder.
+Any publication, public distribution, or external release of this software or any modified version thereof requires the **explicit written permission of the copyright holder**.
 
 ---
 
