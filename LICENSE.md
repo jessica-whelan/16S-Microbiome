@@ -11,8 +11,8 @@ This software, including all source code, documentation, and associated material
 Uppsala University and its affiliated research groups are granted a **perpetual, royalty-free, non-exclusive license** to use, modify, and distribute this software for internal research and educational purposes only.  
 
 No transfer of ownership, copyright, or intellectual property rights is implied or granted by this license.  
-Publication or redistribution of code outside Uppsala University or use for commercial purposes requires **explicit written permission** from the copyright holder.
 
+Any publication, public distribution, or external release of this software or any modified version thereof requires the explicit written permission of the copyright holder.
 ---
 
 ## Citation
