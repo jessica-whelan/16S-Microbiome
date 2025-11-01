@@ -36,7 +36,8 @@ Notes:
 
 This pipeline was developed and is maintained by Jessica Whelan (jessica-whelan).
 
-Please acknowledge or cite this repo when using or adapting the code.
-Any use, adaptation, redistribution, or incorporation of the code requires explicit written permission from the author and must include appropriate citation or acknowledgement.
+Any use, adaptation, redistribution, or incorporation of the code requires **explicit written permission** from the author and must include appropriate citation or acknowledgement.
+
+Permission to use does not waive the requirement for appropriate citation or acknowledgement.
 
 © 2025 Jessica Whelan. All rights reserved.
