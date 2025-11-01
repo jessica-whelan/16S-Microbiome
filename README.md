@@ -34,10 +34,9 @@ Notes:
 
 ## Authorship and Usage
 
-This pipeline was developed and is maintained by Jessica Whelan (jessica-whelan). It serves as the upstream source for the analysis code used in the bmd-project repo.  
-A corresponding fork is maintained under the `bmd-project` organization to support project-specific development and collaboration.
+This pipeline was developed and is maintained by Jessica Whelan (jessica-whelan).
 
 Please acknowledge or cite this repo when using or adapting the code.
-Any use, adaptation, redistribution, or incorporation of the code requires permission from the author and must include appropriate citation or acknowledgement.
+Any use, adaptation, redistribution, or incorporation of the code requires explicit written permission from the author and must include appropriate citation or acknowledgement.
 
 © 2025 Jessica Whelan. All rights reserved.
