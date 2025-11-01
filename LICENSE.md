@@ -2,7 +2,7 @@
 
 © 2025 Jessica Whelan. All rights reserved.  
 
-This software, including all source code, documentation, and associated materials, is the intellectual property of Jessica Whelan.
+This software, including all source code, documentation, and related materials, was developed and is maintained by Jessica Whelan. All intellectual property rights in the software remain with the developer.
 
 ---
 
