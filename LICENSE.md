@@ -8,7 +8,7 @@ This software, including all source code, documentation, and related materials, 
 
 ## 1. License to Uppsala University
 
-Uppsala University is granted a **perpetual, royalty-free, non-exclusive license, non-transferable** license to use this software internally for research and educational purposes only.  
+Uppsala University is granted a **royalty-free, non-exclusive, non-transferable** license to use this software internally for research and educational purposes only.  
 
 No transfer of ownership, copyright, sublicensing, or intellectual property rights is implied or granted by this license.  
 
