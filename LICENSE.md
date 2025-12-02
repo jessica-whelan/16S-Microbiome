@@ -8,7 +8,9 @@ This software, including all source code, documentation, and related materials, 
 
 ## 1. License to Uppsala University
 
-Uppsala University is granted a **royalty-free, non-exclusive, non-transferable** license to use this software internally for research and educational purposes only.  
+Uppsala University is granted a **royalty-free, non-exclusive, non-transferable** license to:
+- Use this software internally for research and educational purposes
+- Modify this software as necessary for internal research and educational purposes  
 
 No transfer of ownership, copyright, sublicensing, or intellectual property rights is implied or granted by this license.  
 
@@ -16,17 +18,16 @@ Any broader use requires a separate written agreement.
 
 ## 1.1 Restrictions
 
-Without explicit prior **written permission** from the copyright holder:
-- **May not be modified**  
-- **May not be distributed**, published, or shared outside Uppsala University  
-- **May not be used to create derivative works**  
+Without explicit prior **written permission** from the copyright holder, the software and any modified versions thereof:
+- **May not be distributed**, published, or shared outside Uppsala University    
 - **May not be released** to collaborators or external parties
+- **Commercial use is strictly prohibited**
 
 ---
 
 ## 2. Citation
 
-Users of this software, including Uppsala University researchers and collaborators, are required to cite the software in any resulting publications, presentations, or reports.  
+Users of this software or any modified versions of the software, including Uppsala University researchers and collaborators, are required to cite the original work in any resulting publications, presentations, posters, reports, or derived scientific outputs.  
 
 **Preferred citation format:**
 
@@ -34,6 +35,12 @@ Users of this software, including Uppsala University researchers and collaborato
 > https://github.com/jessica-whelan/16S-Microbiome
 
 If the software is archived with a DOI (e.g., via Zenodo), please cite the DOI version instead.
+
+## 2.1 Citations using modified versions
+
+If the software is modified and used to generate results for publications:
+- The original software must still be cited and modifications may be described in methods (e.g. "We adapted the pipeline for internal use"), but specifics of the code may not be published or disclosed
+- Modified code or derivative components may not be shared, released, or uploaded (e.g. as a supplemental material) without prior written permission.
 
 ---
 
