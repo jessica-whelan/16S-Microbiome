@@ -28,7 +28,7 @@ This repository contains the R code and analysis pipeline for 16S microbiome dat
   - Functions here are experimental and may be merged into the main workflow once validated.
 
 Notes:
-- All scripts are written in **R** and rely on packages such as `phyloseq`, `mixOmics`, and other common microbiome analysis tools. Please see CITATION.md for references to R packages used in this pipeline that request citation
+- All scripts are written in **R** and rely on packages such as `phyloseq`, `mixOmics`, and other common microbiome analysis tools. Please see REFERENCES.md for references to R packages used in this pipeline that request citation
 
 ---
 
