@@ -1224,7 +1224,7 @@ pca_res_ext <- plot_pca(clr_data_ext$data.clr, clr_data_ext$sample.meta)
 perf_ncomp_ext <- explore_ncomp(clr_data_ext$data.clr, clr_data_ext$sample.meta, max_comp=5)
 
 # 5. Tune keepX
-keepX_res_ext <- tune_keepX(clr_data_ext$data.clr, clr_data_ext$sample.meta, ncomp=4) #enter optimal ncomp value
+keepX_res_ext <- tune_keepX(clr_data_ext$data.clr, clr_data_ext$sample.meta, ncomp=3) #enter optimal ncomp value
 
 # 6. Run sPLS-DA with optimized keepX
 splsda_final_ext <- run_splsda_with_perf(ps_ext_filtered, clr_data_ext$data.clr, clr_data_ext$sample.meta,
