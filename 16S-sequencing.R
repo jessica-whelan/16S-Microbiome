@@ -1228,7 +1228,7 @@ keepX_res_ext <- tune_keepX(clr_data_ext$data.clr, clr_data_ext$sample.meta, nco
 
 # 6. Run sPLS-DA with optimized keepX
 splsda_final_ext <- run_splsda_with_perf(ps_ext_filtered, clr_data_ext$data.clr, clr_data_ext$sample.meta,
-                                         ncomp=4, optimal.keepX=keepX_res_ext$optimal.keepX) #enter optimal ncomp value
+                                         ncomp=3, optimal.keepX=keepX_res_ext$optimal.keepX) #enter optimal ncomp value
 
 # Inspect error rates
 splsda_final_ext$perf.res$error.rate
