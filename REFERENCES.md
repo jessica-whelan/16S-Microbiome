@@ -1,12 +1,3 @@
-## References / Package Citations
-
-  ---
-title: "R Package References"
-output:
-  html_document:
-    toc: true
-    toc_depth: 2
----
 
 # R Package References
 
@@ -104,5 +95,6 @@ Analyses in this project were performed using **R** with the following packages.
 - **miLineage**  
   Lineage analysis.  
   [CRAN Link](https://CRAN.R-project.org/package=miLineage)
+
 
 
