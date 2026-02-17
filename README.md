@@ -15,6 +15,10 @@ This repository contains the R code and analysis pipeline for 16S microbiome dat
   - Computes alpha and beta diversity metrics to assess microbial diversity within and between samples.  
   - Implements ML-based differential abundance analyses, allowing identification of taxa associated with experimental conditions.  
   - Serves as the central workflow for the project; additional functions and plots may be integrated as development progresses.
+ 
+- **`IntraSampleVariability.R`** – Script to analyze for intra-sample variability when there are technical or biological replicates present
+  - Filters low abundance taxa, agglomerates to desired taxa level
+  - Creates relative abundance barplots, ordination plots, calculates BC values and creates barplot + heatmap, and calculates alpha diversity values and barplot
 
 - **`krona-plot-function.R`** – Interactive visualization module (in development).  
   - Generates Krona HTML plots for hierarchical exploration of taxonomic abundance.  
@@ -24,7 +28,6 @@ This repository contains the R code and analysis pipeline for 16S microbiome dat
 - **`testing-code.R`** – Development and testing script.  
   - Contains code for various visualization options and exploratory analyses.  
   - Includes **ANCOM-BC2** analysis for sensitivity testing of differential abundance results.
-  - Includes intra-sample variability analyses 
   - Functions here are experimental and may be merged into the main workflow once validated.
 
 Notes:
