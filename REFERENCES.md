@@ -1,36 +1,108 @@
 ## References / Package Citations
 
-To properly acknowledge the authors of the software used in this pipeline, please cite the following R packages:
+  ---
+title: "R Package References"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
 
-- **phyloseq**  
-  McMurdie, P.J. & Holmes, S. (2013). phyloseq: An R package for reproducible interactive analysis and graphics of microbiome census data. *PLOS ONE*, 8(4), e61217. https://doi.org/10.1371/journal.pone.0061217
+# R Package References
 
-- **vegan**  
-  Oksanen, J., Blanchet, F.G., Friendly, M., Kindt, R., Legendre, P., McGlinn, D., ... & Wagner, H. (2022). *vegan: Community Ecology Package*. R package version 2.6-4. https://CRAN.R-project.org/package=vegan
+Analyses in this project were performed using **R** with the following packages. Citations and links are included for reproducibility.
 
-- **ape**  
-  Paradis, E. & Schliep, K. (2019). ape 5.0: an environment for modern phylogenetics and evolutionary analyses in R. *Bioinformatics*, 35(3), 526–528. https://doi.org/10.1093/bioinformatics/bty633
+---
 
-- **DECIPHER**  
-  Wright, E.S. (2016). Using DECIPHER v2.0 to analyze big biological sequence data in R. *R Journal*, 8(1), 352–359. https://doi.org/10.32614/RJ-2016-025
-
-- **dada2**  
-  Callahan, B.J., McMurdie, P.J., Rosen, M.J., Han, A.W., Johnson, A.J.A., & Holmes, S.P. (2016). DADA2: High-resolution sample inference from Illumina amplicon data. *Nature Methods*, 13, 581–583. https://doi.org/10.1038/nmeth.3869
-
-- **mixOmics**  
-  Rohart, F., Gautier, B., Singh, A. & Lê Cao, K-A. (2017). mixOmics: An R package for 'omics feature selection and multiple data integration. *PLoS Computational Biology*, 13(11), e1005752. https://doi.org/10.1371/journal.pcbi.1005752
-
-- **Biostrings**  
-  Pages, H., Aboyoun, P., Gentleman, R., & DebRoy, S. (2023). *Biostrings: Efficient manipulation of biological strings.* R package version 2.68.0. https://bioconductor.org/packages/Biostrings
-
-- **pairwiseAdonis**  
-  Martinez Arbizu, P. (2020). pairwiseAdonis: Pairwise multilevel comparison using adonis. R package version 0.4. https://github.com/pmartinezarbizu/pairwiseAdonis
-
-- **ggplot2**  
-  Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis. Springer.
-
-- **dplyr**  
-  Wickham et al. dplyr: A Grammar of Data Manipulation.
+## Core & Tidyverse Packages
 
 - **tidyverse**  
-  Wickham H, Averick M, Bryan J, et al. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686
+  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Lin Pedersen T, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). *Welcome to the tidyverse*. Journal of Open Source Software **4(43)**:1686  
+  [DOI Link](https://doi.org/10.21105/joss.01686)  
+  > Covers **dplyr**, **tibble**, **ggplot2**, **readr**, etc.
+
+---
+
+## Ecology, Phylogenetics & Microbiome Tools
+
+- **phyloseq**  
+  McMurdie PJ, Holmes S (2024). *phyloseq: Handling and analysis of high-throughput microbiome census data*.  
+  [Bioconductor Link](https://bioconductor.org/packages/phyloseq/)
+
+- **vegan**  
+  Oksanen J, et al. (2025). *vegan: Community Ecology Package*.  
+  [Website Link](https://vegandevs.github.io/vegan/)
+
+- **ape**  
+  Paradis E, et al. (2024). *ape: Analyses of Phylogenetics and Evolution*.  
+  [CRAN Link](https://CRAN.R-project.org/package=ape)
+
+- **Biostrings**  
+  Bioconductor package for biological string handling.  
+  [Bioconductor Link](https://bioconductor.org/packages/Biostrings/)
+
+---
+
+## Data Wrangling & Visualization
+
+- **ggpubr**  
+  Kassambara A (2023). *ggpubr: ‘ggplot2’ Based Publication Ready Plots*.  
+  [CRAN Link](https://CRAN.R-project.org/package=ggpubr)
+
+- **gghighlight**  
+  CRAN package for highlighting lines in ggplot2.  
+  [CRAN Link](https://CRAN.R-project.org/package=gghighlight)
+
+- **gridExtra**  
+  Auguie B (2021). *gridExtra: Miscellaneous Functions for “Grid” Graphics*.  
+  [CRAN Link](https://CRAN.R-project.org/package=gridExtra)
+
+- **scales**  
+  Wickham H, Wilke C (2023). *scales: Scale Functions for Visualization*.  
+  [CRAN Link](https://CRAN.R-project.org/package=scales)
+
+- **car**  
+  Fox J, Weisberg S (2019). *car: Companion to Applied Regression*.  
+  [CRAN Link](https://CRAN.R-project.org/package=car)
+
+- **readxl**  
+  Wickham H, Bryan J (2023). *readxl: Read Excel Files*.  
+  [CRAN Link](https://CRAN.R-project.org/package=readxl)
+
+- **openxlsx**  
+  Yan W (2024). *openxlsx: Read/Write Excel Files*.  
+  [CRAN Link](https://CRAN.R-project.org/package=openxlsx)
+
+- **rgl**  
+  Adler D, Murdoch D (2025). *rgl: 3D Visualization Using OpenGL*.  
+  [CRAN Link](https://CRAN.R-project.org/package=rgl)
+
+---
+
+## Bioinformatics & Specialized Analyses
+
+- **DECIPHER**  
+  Wright E (2025). *DECIPHER: Tools for deciphering biological sequences*.  
+  [Website Link](https://decipher.codes/)
+
+- **mixOmics**  
+  Rohart F, et al. (2024). *mixOmics: Omics Data Integration Project*.  
+  [CRAN Link](https://CRAN.R-project.org/package=mixOmics)
+
+- **pairwiseAdonis**  
+  Pairwise Adonis post hoc comparisons.  
+  [CRAN Link](https://CRAN.R-project.org/package=pairwiseAdonis)
+
+- **pairwise**  
+  Multiple pairwise tests (CRAN).  
+  [CRAN Link](https://CRAN.R-project.org/package=pairwise)
+
+- **decontam**  
+  Davis NM, Proctor DM, Holmes SP, Relman DA, Callahan BJ (2023). *decontam: Identify Contaminants in Marker-Gene and Metagenomics Data*.  
+  [GitHub Link](https://github.com/benjjneb/decontam)
+
+- **miLineage**  
+  Lineage analysis.  
+  [CRAN Link](https://CRAN.R-project.org/package=miLineage)
+
+
