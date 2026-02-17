@@ -17,7 +17,6 @@ library(Biostrings)
 library(pairwiseAdonis)
 library(dada2)
 library(gridExtra)
-library(miLineage)
 library(readxl)         # Excel import
 library(decontam)
 library(scales)
