@@ -26,3 +26,11 @@ To properly acknowledge the authors of the software used in this pipeline, pleas
 - **pairwiseAdonis**  
   Martinez Arbizu, P. (2020). pairwiseAdonis: Pairwise multilevel comparison using adonis. R package version 0.4. https://github.com/pmartinezarbizu/pairwiseAdonis
 
+- **ggplot2**  
+  Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis. Springer.
+
+- **dplyr**  
+  Wickham et al. dplyr: A Grammar of Data Manipulation.
+
+- **tidyverse**  
+  Wickham H, Averick M, Bryan J, et al. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686
