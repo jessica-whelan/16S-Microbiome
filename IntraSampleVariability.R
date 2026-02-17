@@ -4,7 +4,6 @@ library(ggplot2)
 library(dplyr)
 library(pheatmap)
 library(reshape2)
-library(svglite)
 run_intra_sample_analysis <- function(ps_object, object_name = "ps", taxrank = "Family",
                                       abundance_cutoff = 0.01,
                                       absolute_bc_cutoff = 0.6,
