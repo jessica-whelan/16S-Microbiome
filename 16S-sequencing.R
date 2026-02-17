@@ -15,7 +15,6 @@ library(DECIPHER)
 library(mixOmics)
 library(Biostrings)
 library(pairwiseAdonis)
-library(dada2)
 library(gridExtra)
 library(readxl)         # Excel import
 library(decontam)
