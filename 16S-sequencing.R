@@ -43,11 +43,11 @@ samples_noc <- load_sample_data("sam_data excel for r no c.xlsx")   #this is sam
 
 # Create phyloseq objects with different sample data
 physeq <- phyloseq(otu, tax, samples)
-physeq_noc <- phyloseq(otu, tax, samples_noc) #for sample data without mock community samples
+physeq_noc <- phyloseq(otu, tax, samples_noc) 
 
 # --- Decontam workflow (run before filtering) ---
 
-# Define known mock taxa (we are inserting the genus names provided from Zymo mock community)
+# Define known mock taxa 
 known_mock_taxa <- c(
   "Pseudomonas", "Escherichia-Shigella", "Salmonella",
   "Enterococcus", "Limosilactobacillus", "Staphylococcus",
@@ -62,7 +62,7 @@ mock_asvs <- tax_df %>%
   filter(Genus %in% known_mock_taxa) %>%
   pull(ASV_ID)
 
-# Identify control samples (category == "C")
+# Identify control samples
 control_samples <- sample_names(subset_samples(physeq, category == "C"))
 
 # Access OTU table (ensure taxa are rows)
@@ -115,7 +115,7 @@ physeq_cleaned <- prune_taxa(
 contam_table <- contam_with_tax %>%
   dplyr::filter(contaminant) %>%
   dplyr::select(ASV, Kingdom, Phylum, Class, Order, Family, Genus)
-View(contam_table)  # to view the table in separate R tab
+
 
 # Remove control samples (category C)
 physeq_decon <- subset_samples(physeq_cleaned, category != "C")
@@ -575,7 +575,7 @@ remove_zero_samples <- function(physeq_obj) {
 ps_conservative_tree_clean <- remove_zero_samples(ps_conservative_tree)
 ps_extensive_tree_clean   <- remove_zero_samples(ps_extensive_tree)
 
-# Now compute distances safely
+# Now compute distances 
 dist_bray_conservative <- phyloseq::distance(ps_conservative_tree_clean, method = "bray")
 dist_jaccard_conservative <- phyloseq::distance(ps_conservative_tree_clean, method = "jaccard")
 
@@ -799,7 +799,7 @@ alpha_div.df_ext <- cbind(as.data.frame(sample_data(physeq.rarefied_ext))[,1:3],
 # Normality
 shapiro.test(alpha_div_cons$Shannon)
 shapiro.test(alpha_div_ext$Shannon)
-# T-tests or Wilcoxon (adjust if non-normal)
+
 
 
 #Plot Alpha Div
