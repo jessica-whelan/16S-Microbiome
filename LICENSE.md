@@ -54,17 +54,10 @@ Where results are generated using a modified version of the Software (as permitt
 
 **Preferred citation format:**
 
-> Whelan, J. (2025). *Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples* (Version 1.0.0) [Computer software]. GitHub.  
-> https://github.com/jessica-whelan/16S-Microbiome  
-
-If a DOI version is available (e.g., via Zenodo), citation of the DOI-archived version is encouraged.
-
-Preferred citation format
-
-Version-specific citation (reproducible):
+>Version-specific citation (reproducible):
 Whelan, J. (2026). _Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples_ (Version 1.0.4) [Computer software]. https://doi.org/10.5281/zenodo.18771493
 
-Cite-all-versions (always resolves to the latest):
+>Cite-all-versions (always resolves to the latest):
 Whelan, J. (2025). _Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples_ [Computer software]. https://doi.org/10.5281/zenodo.18771116
 
 ---
