@@ -52,6 +52,8 @@ This citation requirement applies to all users, including Uppsala University and
 
 Where results are generated using a modified version of the Software (as permitted under Section 1 to Uppsala University), the original Software must still be cited. Modification of the Software does not transfer ownership of, or create joint intellectual property rights in, the Software.
 
+---
+
 **Preferred citation format:**
 
 >Version-specific citation (reproducible):
