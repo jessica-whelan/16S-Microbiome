@@ -35,6 +35,19 @@ Notes:
 
 ---
 
+## How to cite
+
+If you use this software in your research, please cite:
+
+**Version-specific (recommended for reproducibility):**  
+Whelan, J. (2026). *Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples* (Version 1.0.3) [Computer software].  
+https://doi.org/10.5281/zenodo.18771493
+
+**Cite all versions (concept DOI):**  
+https://doi.org/10.5281/zenodo.18771116
+
+---
+
 ## Authorship and Usage
 
 This pipeline was developed and is maintained by Jessica Whelan (jessica-whelan).
