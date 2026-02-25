@@ -6,10 +6,7 @@
   "creators": [
     {
       "name": "Whelan, Jessica"
-      /*
-       * Optional: add your ORCID if you have one
-       * "orcid": "0000-0000-0000-0000"
-       */
+      "orcid": "0000-0002-0959-4680"
     }
   ],
   "description": "R-based analysis pipeline for processing 16S rRNA sequencing data from low-biomass human samples. Provides preprocessing, compositional data analysis, visualization, and reproducible workflow components suitable for research applications.",
