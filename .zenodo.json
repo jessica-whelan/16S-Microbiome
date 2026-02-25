@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
-  "title": "Pipeline for 16S Sequencing Analysis of Human Microbiome",
-  "version": "1.0.2",
+  "title": "Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples",
+  "version": "1.0.4",
   "publication_date": "2026-02-25",
   "creators": [
     {
@@ -26,7 +26,7 @@
     },
     {
       "relation": "isIdenticalTo",
-      "identifier": "10.5281/zenodo.18771117",
+      "identifier": "10.5281/zenodo.18771493",
       "resource_type": "software",
       "scheme": "doi"
     }
