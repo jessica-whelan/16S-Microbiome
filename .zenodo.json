@@ -1,5 +1,40 @@
 {
+  "upload_type": "software",
+  "title": "Pipeline for 16S Sequencing Analysis of Human Microbiome",
+  "version": "1.0.2",
+  "publication_date": "2026-02-25",
+  "creators": [
+    {
+      "name": "Whelan, Jessica"
+      /*
+       * Optional: add your ORCID if you have one
+       * "orcid": "0000-0000-0000-0000"
+       */
+    }
+  ],
+  "description": "R-based analysis pipeline for processing 16S rRNA sequencing data from low-biomass human samples. Provides preprocessing, compositional data analysis, visualization, and reproducible workflow components suitable for research applications.",
+  "keywords": [
+    "16S rRNA",
+    "microbiome",
+    "low-biomass",
+    "compositional data",
+    "R"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/jessica-whelan/16S-Microbiome",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "relation": "isIdenticalTo",
+      "identifier": "10.5281/zenodo.18771117",
+      "resource_type": "software",
+      "scheme": "doi"
+    }
+  ],
   "license": "other-open",
   "access_right": "open",
-  "notes": "This software is distributed under a custom license. See LICENSE.md in the repository for full terms."
+  "notes": "License and Terms of Use\n© 2025 Jessica Whelan. All rights reserved.\n\nThis software, including all source code, documentation, and associated materials (the “Software”), was developed and is maintained by Jessica Whelan. All intellectual property rights in and to the Software remain exclusively with the developer.\n\nPublic access to the Software does not constitute a transfer of ownership or grant of rights except as expressly set forth below.\n\n1. License to Uppsala University\nUppsala University is granted a royalty-free, non-exclusive, non-transferable license to:\n\nUse this software internally for research and educational purposes\nModify this software as necessary for internal research and educational purposes\nThis license is limited to internal academic use within Uppsala University. No ownership rights, copyright, sublicensing rights, or other intellectual property rights are transferred under this License.\n\nAny broader use requires a separate written agreement.\n\n1.1 Limitations\nExcept with prior written permission from the copyright holder:\n\nThe Software, in original or modified form, may not be distributed, published, or otherwise made available outside Uppsala University, including but not limited to inclusion in supplementary materials, grant applications, or repositories.\nModified versions may not be shared with external collaborators or third parties.\nExternal collaborators or third parties are not granted rights to modify the Software.\nThe Software may not be used for commercial purposes.\n\n2. Public Non-Commercial Academic Use\nSubject to the terms of this License, members of the public are granted a limited, non-exclusive, non-transferable license to use the Software in its original, unmodified form solely for non-commercial academic or personal research purposes.\n\nUnder this public license:\n\nThe Software may not be modified, adapted, reverse engineered, or incorporated into derivative works.\nRedistribution of the Software, in whole or in part, is not permitted, including but not limited to inclusion in supplementary materials, grant applications, or repositories.\nModified or derivative versions may not be created, published, deposited, uploaded, or otherwise shared.\nCommercial use of the Software is not permitted without a separate written agreement.\n\nFor the avoidance of doubt, the right to modify the Software is granted exclusively to Uppsala University under Section 1 of this License. No such rights are granted to members of the public. This License does not grant rights to sublicense, distribute, or commercially exploit the Software.\n\n3. Attribution and Citation\nUse of the Software to generate research results, analyses, or other scholarly outputs requires citation of the Software in all resulting publications, presentations, posters, reports, grant applications, theses, or other scientific outputs.\n\nThis citation requirement applies to all users, including Uppsala University and members of the public.\n\nWhere results are generated using a modified version of the Software (as permitted under Section 1 to Uppsala University), the original Software must still be cited. Modification of the Software does not transfer ownership of, or create joint intellectual property rights in, the Software.\n\nPreferred citation format:\n\nWhelan, J. (2026). Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples (Version 1.0.2) [Computer software]. https://doi.org/10.5281/zenodo.18771117\n\nIf a DOI version is available (e.g., via Zenodo), citation of the DOI-archived version is encouraged.\n\n3.1 Use of Modified Versions\nModification of the Software is permitted only to Uppsala University under Section 1 of this License and solely for internal research purposes.\n\nDescription of permitted internal modifications for transparency is allowed in the methods section (e.g., “The Software was adapted for internal use”); however, such description does not confer authorship or ownership rights in the Software.\n\nModified source code or derivative components may not be published, deposited, uploaded, or otherwise shared (including as supplementary materials) without prior written permission from the copyright holder.\n\n4. Limited Liability\nThe Software is provided “as is,” without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. To the maximum extent permitted by law, the copyright holder shall not be liable for any claims, damages, or other liability arising from or in connection with the Software or its use including but not limited to:\n\nErrors, bugs, or inaccuracies in the software\nLosses or damages arising from its use\nConsequential, incidental, or indirect damages\nUse of results for clinical, diagnostic, commercial, or regulatory purposes\n\nUsers are solely responsible for verifying the accuracy, reliability, and suitability of the Software for their intended purposes.\n\n5. General Use and Acceptance of Terms\nBy accessing or using the Software, users agree to be bound by the terms of this License. Requests for permissions beyond the scope of this License, including collaboration, distribution, or commercial use, may be directed to the copyright holder.\n\nAny use not expressly permitted under this License is reserved by the copyright holder."
 }
