@@ -1,4 +1,4 @@
-# 16S Sequencing Analysis Pipeline for Human Microbiome Low Biomass Samples
+# Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples
 
 This repository contains an analysis pipeline for 16S sequencing data developed for low biomass microbiome samples.  
 All code and methods were developed and are maintained by Jessica Whelan (jessica-whelan).
