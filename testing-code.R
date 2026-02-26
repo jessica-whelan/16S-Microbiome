@@ -302,7 +302,7 @@ sig_taxa[which.min(sig_taxa$beta), ]
 write.csv(sig_taxa, "ANCOMBC2_significant_taxa.csv", row.names = TRUE)
 
 
-# If NO taxa are signficant (which is true in our case)
+# If NO taxa are signficant 
 # Sort by log fold change regardless of significance
 top_taxa <- res$res[order(res$res$lfc_categoryB, decreasing = TRUE), ]
 head(top_taxa[, c("taxon", "lfc_categoryB", "q_categoryB", "diff_categoryB")])
@@ -769,8 +769,5 @@ ggplot(bray_summary, aes(x = dupl_id.x, y = mean_dissimilarity, fill = mean_diss
   ggtitle("Highlight Samples with Mean Bray-Curtis > 0.6") +
   guides(fill = FALSE)  # Hide legend if not needed
 
-######Things to do still
-#  1) Intra-sample variability analysis
-#  2) Deciding sPLS-DA prevalence/abundance filtering for pilot study
 #  3) Finalize ANCOM-BC2 analysis
 #  4) Make Krona Plot (in testing)
