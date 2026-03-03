@@ -54,10 +54,10 @@ Where results are generated using a modified version of the Software (as permitt
 
 *Preferred citation format:*
 
-Version-specific citation (reproducible):
+Version-specific citation:
 >Whelan, J. (2026). _Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples_ (Version 1.0.4) [Computer software]. https://doi.org/10.5281/zenodo.18771493
 
-Cite-all-versions (always resolves to the latest):
+Concept DOI:
 >Whelan, J. (2025). _Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples_ [Computer software]. https://doi.org/10.5281/zenodo.18771116
 
 ---
