@@ -1,5 +1,7 @@
 # Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18771493.svg)](https://doi.org/10.5281/zenodo.18771493)
+
 This repository contains an analysis pipeline for 16S sequencing data developed for low biomass microbiome samples.  
 All code and methods were developed and are maintained by Jessica Whelan (jessica-whelan).
 The pipeline is modular and under active development. 
@@ -8,7 +10,7 @@ The pipeline is modular and under active development.
 
 ## Repository Contents
 
-This repository contains the R code and analysis pipeline for 16S microbiome data analysis used in the **bmd-project**. Below is a description of the main scripts and their intended purpose:
+This repository contains the R code and analysis pipeline for 16S microbiome data analysis used for low biomass human samples. Below is a description of the main scripts and their intended purpose:
 
 - **`16S-sequencing.R`** – The main analysis script for the project.  
   - Performs preprocessing of raw 16S sequencing data, including quality filtering, decontamination, and normalization.  
@@ -39,12 +41,13 @@ Notes:
 
 If you use this software in your research, please cite:
 
+**Cite all versions (concept DOI):**  
+Whelan, J. (2025). *Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples* [Computer software].  
+https://doi.org/10.5281/zenodo.18771116
+
 **Version-specific**  
 Whelan, J. (2026). *Pipeline for 16S Sequencing Analysis of Human Microbiome Low Biomass Samples* (Version 1.0.4) [Computer software].  
 https://doi.org/10.5281/zenodo.18771493
-
-**Cite all versions (concept DOI):**  
-https://doi.org/10.5281/zenodo.18771116
 
 ---
 
